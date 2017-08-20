@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { DropdownModule } from '../dropdown/dropdown.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
