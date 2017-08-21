@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  options = ['Angular','React','Vue','Ember'];
+  selected = 2;
+  constructor(){
+
+  }
+  changeValue(index){
+    this.selected = index;
+  }
 }

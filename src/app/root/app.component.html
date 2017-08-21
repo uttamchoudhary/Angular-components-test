@@ -1,4 +1,10 @@
 <h2>
     app works!
 </h2>
-<ng-dropdown></ng-dropdown>
+<h3>
+    Dropdown
+</h3>
+<ng-dropdown [selected]="selected" [options]="options" (change)="changeValue($event)"></ng-dropdown>
+<p>
+    {{options[selected-1]}}
+</p>

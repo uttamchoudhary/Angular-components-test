@@ -1,3 +1,7 @@
-<p>
-  dropdown works!
-</p>
+<div class="dropdown-wrapper" (click)="active=!active" [ngClass]="{'active':active}">
+    <span>{{options[selected-1]}}</span>
+    <em class="icon-dropdown"></em>
+    <ul class="dropdown">
+        <li *ngFor="let option of options;let i = index" (click)="changeValue(i)"><span>{{option}}</span></li>
+    </ul>
+</div>
