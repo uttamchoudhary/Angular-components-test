@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
