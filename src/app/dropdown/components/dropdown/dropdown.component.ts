@@ -11,7 +11,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@ang
 export class DropdownComponent implements OnInit {
   @Input() options: Array<any>;
   @Input() selected: number;
-  @Output() change = new EventEmitter();
+  @Output() onchange = new EventEmitter();
   
   selectedItem: any;
   active:boolean = false;
@@ -24,11 +24,11 @@ export class DropdownComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedItem = this.options[this.selected - 1];
+    this.selectedItem = this.selected ? this.options[this.selected - 1] : this.options[0];
   }
   
   changeValue(index){
     this.selectedItem = this.options[index];
-    this.change.emit(index+1);
+    this.onchange.emit(index+1);
   }
 }
