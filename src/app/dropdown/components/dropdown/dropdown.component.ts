@@ -1,3 +1,4 @@
+import { Settings } from './../model/settings.model';
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
@@ -11,6 +12,8 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@ang
 export class DropdownComponent implements OnInit {
   @Input() options: Array<any>;
   @Input() selected: number;
+  @Input() settings: Settings;
+  
   @Output() onchange = new EventEmitter();
   
   selectedItem: any;
@@ -24,6 +27,7 @@ export class DropdownComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.settings)
     this.selectedItem = this.selected ? this.options[this.selected - 1] : this.options[0];
   }
   

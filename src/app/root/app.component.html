@@ -4,7 +4,7 @@
 <h3>
     Dropdown
 </h3>
-<ng-dropdown [selected]="selected" [options]="options" (onchange)="changeValue($event)"></ng-dropdown>
+<ng-dropdown [selected]="selected" [options]="options" [settings]="settings" (onchange)="changeValue($event)"></ng-dropdown>
 <p>
     {{options[selected-1]}}
 </p>
