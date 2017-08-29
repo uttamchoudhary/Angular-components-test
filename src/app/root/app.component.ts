@@ -6,11 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent  {
-  options = ['Angular','React','Vue','Ember'];
+  options = ['Angular','react','Vue','Ember'];
   selected = 2;
   settings;
+  displayed;
   constructor(){
     this.settings =  {
+      output:'value',
       isDatalist: true,      
       caretClass: 'caret',
       caretImag: false,
@@ -18,6 +20,6 @@ export class AppComponent  {
     }
   }
   changeValue(index){
-    this.selected = index;
+    this.displayed = index;
   }
 }

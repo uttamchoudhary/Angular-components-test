@@ -6,7 +6,10 @@
 </h3>
 <ng-dropdown [selected]="selected" [options]="options" [settings]="settings" (onchange)="changeValue($event)"></ng-dropdown>
 <p>
-    {{options[selected-1]}}
+    {{displayed}}
 </p>
 <ng-dropdown [options]="options" [settings]="settings" (onchange)="changeValue($event)"></ng-dropdown>
 <span data-count=20>items</span>
+<header>
+    <nav class="navigation">Hello world</nav>
+</header>

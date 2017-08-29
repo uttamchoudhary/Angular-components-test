@@ -6,6 +6,10 @@
         width: 100%;
         border: none;
         outline: none;
+        text-transform: capitalize;
+    }
+    span {
+        text-transform: capitalize;
     }
     .dropdown {
         /* Size & position */
@@ -22,14 +26,11 @@
         /* Hover state */
         li {
             span {
+                text-transform: capitalize;
                 transition: all 0.3s ease-out;
             }
         }
     }
-}
-
-.dropdown-wrapper em {
-    float: right;
 }
 
 

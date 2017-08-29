@@ -7,3 +7,24 @@ h3 {
         content: attr(data-count);
     }
 }
+
+$colors:( primary:red, secondary:blue, black:green, );
+$font-colors:(pink:pink, black:yellow);
+$all-colors:map-merge($colors, $font-colors);
+header {
+    color: map-get($all-colors, pink) !important;
+}
+
+.navigation {
+    color: map-get($all-colors, black);
+}
+
+// .navigation {
+//     color: black;
+//     @at-root header #{&} {
+//         color: red;
+//     }
+//     header #{&} {
+//         color: blue;
+//     }
+// }
