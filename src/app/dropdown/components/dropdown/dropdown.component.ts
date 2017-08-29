@@ -27,7 +27,6 @@ export class DropdownComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.settings)
     this.selectedItem = this.selected ? this.options[this.selected - 1] : this.options[0];
   }
   

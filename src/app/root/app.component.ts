@@ -11,10 +11,10 @@ export class AppComponent  {
   settings;
   constructor(){
     this.settings =  {
-      dropdownCaret: true,
-      dropdownCaretClass: 'icon-dropdown',
-      dropdownCaretImage: false,
-      isDatalist: false
+      isDatalist: true,      
+      caretClass: 'caret',
+      caretImag: false,
+      caretImgPath: ""
     }
   }
   changeValue(index){

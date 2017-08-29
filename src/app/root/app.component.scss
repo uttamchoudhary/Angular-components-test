@@ -1,3 +1,9 @@
 h3 {
     display: inline-block;
 }
+
+[data-count] {
+    &::after {
+        content: attr(data-count);
+    }
+}

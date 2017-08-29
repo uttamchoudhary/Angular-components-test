@@ -87,11 +87,22 @@ $dropdown-active-color: #f0f2f5;
     padding: 0.8em 1.3em;
     width: 20%;
     border: 1px solid $border-color;
-    border-radius: 2em;
     cursor: pointer;
     outline: none;
     font-family: "SapientSansRegular";
     color: $text-color;
+    .caret {
+        &::after {
+            content: "▼";
+            padding: 12px 8px;
+            position: absolute;
+            right: 10px;
+            top: 0;
+            z-index: 1;
+            text-align: center;
+            pointer-events: none;
+        }
+    }
     .dropdown {
         /* Styles */
         background: $color-white;

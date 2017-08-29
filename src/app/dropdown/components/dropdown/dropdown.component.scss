@@ -2,6 +2,11 @@
     /* Size & position */
     display: inline-block;
     position: relative;
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+    }
     .dropdown {
         /* Size & position */
         display: none;
