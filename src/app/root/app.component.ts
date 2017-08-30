@@ -14,7 +14,7 @@ export class AppComponent  {
     this.settings =  {
       output:'value',
       isDatalist: true,      
-      caretClass: 'caret',
+      caretClass: 'icon-dropdown'
     }
   }
   changeValue(index){
