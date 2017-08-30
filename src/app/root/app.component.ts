@@ -15,8 +15,6 @@ export class AppComponent  {
       output:'value',
       isDatalist: true,      
       caretClass: 'caret',
-      caretImag: false,
-      caretImgPath: ""
     }
   }
   changeValue(index){
