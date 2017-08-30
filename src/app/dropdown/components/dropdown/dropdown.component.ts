@@ -38,7 +38,7 @@ export class DropdownComponent implements OnInit {
   }
 
   changeValue(index) {
-    this.selectedItem = this.options[index];
+    this.selectedItem = this.filterOptions[index];
     this.searchTerm = this.selectedItem; 
     if(this.settings['output'] === "value" || this.settings['output'] === "Value"){
       this.onchange.emit(this.selectedItem);     
