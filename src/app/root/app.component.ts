@@ -1,3 +1,4 @@
+import { Settings } from './../dropdown/model/settings.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   options = ['Angular','react','Vue','Ember'];
   selected = 2;
-  settings;
+  settings: Settings;
   displayed;
   constructor(){
     this.settings =  {

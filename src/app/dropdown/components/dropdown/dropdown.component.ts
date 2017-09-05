@@ -1,4 +1,4 @@
-import { Settings } from './../model/settings.model';
+import { Settings } from './../../model/settings.model';
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
