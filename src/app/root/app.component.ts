@@ -13,7 +13,7 @@ export class AppComponent  {
   constructor(){
     this.settings =  {
       output:'value',
-      isDatalist: true,      
+      isDatalist: false,      
       caretClass: 'icon-dropdown'
     }
   }

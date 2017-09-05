@@ -1,8 +1,8 @@
-<div class="dropdown-wrapper" (click)="active=!active" [ngClass]="{'active':active}" #dropdown>
-    <input type="text" *ngIf="settings?.isDatalist" [(ngModel)]="searchTerm" (keyup)="search()">
-    <span *ngIf="!settings?.isDatalist" class="selected">{{selectedItem}}</span>
+<div class="dropdown-wrapper" tabindex="0" role="combobox" aria-labelledby="selected" (click)="active=!active" [ngClass]="{'active':active}">
+    <input id="selected" type="text" tabindex="-1" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="owned_listbox" aria-activedescendant="selected_option" *ngIf="settings?.isDatalist" [(ngModel)]="searchTerm" (keyup)="search()">
+    <span id="selected" class="selected" aria-autocomplete="list" aria-activedescendant="selected_option" *ngIf="!settings?.isDatalist">{{selectedItem}}</span>
     <span [class]="settings?.caretClass" id="caret" [ngStyle]="{'top':positionTop,'right':positionRight}" [ngClass]="{'icon':!settings?.caretClass}"></span>
-    <ul class="dropdown">
-        <li *ngFor="let option of filterOptions;let i = index" (click)="changeValue(i)"><span>{{option}}</span></li>
+    <ul class="dropdown" id="owned_listbox" role="listbox">
+        <li *ngFor="let option of filterOptions;let i = index" (click)="changeValue(i)" role="option"><span>{{option}}</span></li>
     </ul>
 </div>
