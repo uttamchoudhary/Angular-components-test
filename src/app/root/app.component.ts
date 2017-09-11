@@ -1,4 +1,4 @@
-import { Settings } from './../dropdown/model/settings.model';
+import { Settings } from 'ng-custom-select';
 import { Component } from '@angular/core';
 
 @Component({

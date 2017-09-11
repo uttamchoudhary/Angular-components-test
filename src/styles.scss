@@ -83,33 +83,31 @@ $color-black: #000;
 $color-white: #fff;
 $dropdown-active-color: #f0f2f5;
 .dropdown-wrapper {
-    /* Size & position */
     padding: 12px 16px;
     width: 20%;
-    border: 1px solid $border-color;
+    border: 1px solid rgb(206, 205, 201);
     cursor: pointer;
     outline: none;
-    font-family: "SapientSansRegular";
-    color: $text-color;
+    color: rgb(110, 108, 105);
     .dropdown {
         /* Styles */
-        background: $color-white;
+        background: #fff;
         border-radius: 0 0 5px 5px;
-        border: 1px solid $border-color;
+        border: 1px solid rgb(206, 205, 201);
         border-top: none;
         box-sizing: border-box;
         max-height: 400px;
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid rgb(206, 205, 201);
         /* Hover state */
-        li:hover span {
-            color: $highlight-color;
+        .option:hover .text {
+            color: #d15947;
         }
-        li {
+        .option {
             padding: 0.8em;
-            border-bottom: 1px solid $border-color;
-            span {
+            border-bottom: 1px solid rgb(206, 205, 201);
+            .text {
                 text-decoration: none;
-                color: $text-color;
+                color: rgb(110, 108, 105);
                 padding: 1em 0;
             }
         }
