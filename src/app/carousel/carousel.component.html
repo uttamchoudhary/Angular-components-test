@@ -1,0 +1,12 @@
+<div class="carousel">
+
+    <ul class="slides">
+
+        <li *ngFor="let image of IMAGES">
+            <h2>{{image.title}}</h2>
+            <img [src]="image.url" [alt]="image.title">
+        </li>
+
+    </ul>
+
+</div>

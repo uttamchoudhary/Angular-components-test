@@ -1,3 +1,4 @@
+import { CarouselModule } from './../carousel/carousel.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    DropdownModule
+    DropdownModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
