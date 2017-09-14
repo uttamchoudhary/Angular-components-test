@@ -1,12 +1,13 @@
 <div class="carousel">
 
-    <ul class="slides">
+    <div class="slide">
+        <button (click)="prevSlide()">&lt</button>
+        <figure>
+            <img [src]="currentSlide.media" [alt]="currentSlide.caption">
+        </figure>
+        <button (click)="nextSlide()">&gt</button>
 
-        <li *ngFor="let image of IMAGES">
-            <h2>{{image.title}}</h2>
-            <img [src]="image.url" [alt]="image.title">
-        </li>
 
-    </ul>
+    </div>
 
 </div>

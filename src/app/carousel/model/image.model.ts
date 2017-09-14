@@ -1,4 +1,4 @@
 export interface Image {
-    title: String,
-    url: String
+    caption: String,
+    media: String
 }

@@ -3,29 +3,35 @@
     width: 100%;
 }
 
-.slides {
-    list-style: none;
+.slide {
     position: relative;
-    width: 500%;
+    width: 100%;
     /* Number of panes * 100% */
     overflow: hidden;
     /* Clear floats */
     /* Slide effect Animations*/
-    -moz-animation: carousel 30s infinite;
-    -webkit-animation: carousel 30s infinite;
-    animation: carousel 30s infinite;
+    // -moz-animation: carousel 30s infinite;
+    // -webkit-animation: carousel 30s infinite;
+    // animation: carousel 30s infinite;
 }
 
 .slides>li {
     position: relative;
     float: left;
     width: 20%;
+    height: 300px;
     /* 100 / number of panes */
+}
+
+.carousel figure {
+    height: 100%;
+    width: 100%;
 }
 
 .carousel img {
     display: block;
     width: 100%;
+    height: 100%;
     max-width: 100%;
 }
 
@@ -45,54 +51,54 @@
 
 @keyframes carousel {
     0% {
-        left: -5%;
+        left: 0%;
     }
     11% {
-        left: -5%;
+        left: 0%;
     }
     12.5% {
-        left: -105%;
+        left: -100%;
     }
     23.5% {
-        left: -105%;
+        left: -100%;
     }
     25% {
-        left: -205%;
+        left: -200%;
     }
     36% {
-        left: -205%;
+        left: -200%;
     }
     37.5% {
-        left: -305%;
+        left: -300%;
     }
     48.5% {
-        left: -305%;
+        left: -300%;
     }
     50% {
-        left: -405%;
+        left: -400%;
     }
     61% {
-        left: -405%;
+        left: -400%;
     }
     62.5% {
-        left: -305%;
+        left: -300%;
     }
     73.5% {
-        left: -305%;
+        left: -300%;
     }
     75% {
-        left: -205%;
+        left: -200%;
     }
     86% {
-        left: -205%;
+        left: -200%;
     }
     87.5% {
-        left: -105%;
+        left: -100%;
     }
     98.5% {
-        left: -105%;
+        left: -100%;
     }
     100% {
-        left: -5%;
+        left: 0%;
     }
 }
