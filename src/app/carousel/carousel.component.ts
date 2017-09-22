@@ -31,4 +31,9 @@ export class CarouselComponent implements OnInit {
     this.currentSlide = this.IMAGES[this.currentIndex];
   }
 
+  navigate(index){
+    this.currentIndex = index;
+    this.currentSlide = this.IMAGES[this.currentIndex];
+  }
+
 }

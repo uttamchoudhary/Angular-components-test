@@ -1,13 +1,14 @@
 <div class="carousel">
 
-    <div class="slide">
-        <button (click)="prevSlide()">&lt</button>
-        <figure>
-            <img [src]="currentSlide.media" [alt]="currentSlide.caption">
-        </figure>
-        <button (click)="nextSlide()">&gt</button>
-
-
+    <div class="slide" #move>
+        <i class="icon-navigate-left left" (click)="prevSlide(); move = 'left'"></i>
+        <img [src]="currentSlide.media" [alt]="currentSlide.caption" [ngClass]="{'left':move === 'left'}">
+        <i class="icon-navigate-right right" (click)="nextSlide()"></i>
+    </div>
+    <div class="navigator">
+        <ul>
+            <li *ngFor="let image of IMAGES; let index = index" (click)="navigate(index)"><span class="icon-dot"></span></li>
+        </ul>
     </div>
 
 </div>
