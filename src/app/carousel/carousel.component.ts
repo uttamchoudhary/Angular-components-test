@@ -10,7 +10,7 @@ export class CarouselComponent implements OnInit {
   @Input() IMAGES: Image[];
   currentSlide;
   currentIndex = 0;
-  numOfSlides
+  numOfSlides;
   constructor() { }
 
   ngOnInit() {

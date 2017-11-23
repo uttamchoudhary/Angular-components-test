@@ -1,8 +1,8 @@
 <div class="carousel">
 
-    <div class="slide" #move>
+    <div class="slide">
         <i class="icon-navigate-left left" (click)="prevSlide(); move = 'left'"></i>
-        <img [src]="currentSlide.media" [alt]="currentSlide.caption" [ngClass]="{'left':move === 'left'}">
+        <img [src]="currentSlide.media" [alt]="currentSlide.caption">
         <i class="icon-navigate-right right" (click)="nextSlide()"></i>
     </div>
     <div class="navigator">
