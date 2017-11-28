@@ -1,8 +1,14 @@
-<div class="carousel">
+<div class="carousel-wrapper" [ngStyle]="{'height':SETTINGS.height, 'width':SETTINGS.width}">
 
-    <div class="slide">
-        <i class="icon-navigate-left left" (click)="prevSlide(); move = 'left'"></i>
-        <img [src]="currentSlide.media" [alt]="currentSlide.caption">
+    <div class="carousel">
+        <i class="icon-navigate-left left" (click)="prevSlide()"></i>
+        <ul [ngStyle]="{'width':carouselWidth,'transform': leftPosition, 'transition-duration':transitionDuration}">
+
+            <li *ngFor="let slide of images" [ngStyle]="{'width':slideWidth}">
+                <img [src]="slide.media" [alt]="slide.caption" [ngStyle]="{'height':SETTINGS.height, 'width':SETTINGS.width}">
+            </li>
+
+        </ul>
         <i class="icon-navigate-right right" (click)="nextSlide()"></i>
     </div>
     <div class="navigator">

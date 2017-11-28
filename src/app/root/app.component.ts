@@ -1,4 +1,6 @@
 import { Image } from './../carousel/model/image.model';
+import { Settings } from './../carousel/model/settings.model';
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -14,5 +16,9 @@ export class AppComponent  {
     { "caption": "Pre-School Kids", "media": "../../assets/images/expense3.PNG" },
     { "caption": "Young Peter Cech", "media": "../../assets/images/expense4.PNG" } 
   ];
+  settings: Settings = {
+    height:'400px',
+    width: '600px'
+  }
   
 }
