@@ -18,7 +18,12 @@ export class AppComponent  {
   ];
   settings: Settings = {
     height:'400px',
-    width: '600px'
+    width: '600px',
+    carouselDotClass: 'icons-dot',
+    prevIconClass: 'icon-navigate-left',
+    nextIconClass: 'icon-navigate-right',
+    transitionDuration: 1000,
+    transitionDelay:5000
   }
   
 }

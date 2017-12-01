@@ -1,7 +1,7 @@
 <div class="carousel-wrapper" [ngStyle]="{'height':SETTINGS.height, 'width':SETTINGS.width}">
 
     <div class="carousel">
-        <i class="icon-navigate-left left" (click)="prevSlide()"></i>
+        <i [ngClass]="SETTINGS.prevIconClass" *ngIf="SETTINGS.prevIconClass" (click)="prevSlide()"></i>
         <ul [ngStyle]="{'width':carouselWidth,'transform': leftPosition, 'transition-duration':transitionDuration}">
 
             <li *ngFor="let slide of images" [ngStyle]="{'width':slideWidth}">
@@ -9,11 +9,11 @@
             </li>
 
         </ul>
-        <i class="icon-navigate-right right" (click)="nextSlide()"></i>
+        <i [ngClass]="SETTINGS.nextIconClass" *ngIf="SETTINGS.nextIconClass" (click)="nextSlide()"></i>
     </div>
-    <div class="navigator">
+    <div class="navigator" *ngIf="SETTINGS.carouselDotClass">
         <ul>
-            <li *ngFor="let image of IMAGES; let index = index" (click)="navigate(index)"><span class="icon-dot"></span></li>
+            <li *ngFor="let image of IMAGES; let index = index" (click)="navigate(index)"><span [class]="SETTINGS.carouselDotClass"></span></li>
         </ul>
     </div>
 

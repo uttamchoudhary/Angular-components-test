@@ -35,42 +35,44 @@ export class CarouselComponent implements OnInit {
     this.slideWidth = 100/this.numOfSlides + '%';
     this.leftPosition = 'translateX(-' + this.slideWidth + ')';
     this.currentIndex = 1;
-    this.transitionDuration = '1s';
+    this.transitionDuration = this.SETTINGS.transitionDuration + 'ms';
     let move, position;
     for(let i=0; i<this.numOfSlides; i++){
       move = (100/this.numOfSlides * i) + '%';
       position = '-' + move;
       this.positionList.push('translateX(' + position + ')');
     }
-    console.log(this.positionList)
+    setInterval(() => {
+      this.nextSlide();
+    }, this.SETTINGS.transitionDelay);
   }
 
   nextSlide(){
-    this.transitionDuration = '1s';
+    this.transitionDuration = this.SETTINGS.transitionDuration + 'ms';    
     this.leftPosition = this.positionList[++this.currentIndex];
     if(this.currentIndex === this.numOfSlides -1){
       setTimeout(() => {
           this.transitionDuration = '0s';
           this.currentIndex = 1;
           this.leftPosition = this.positionList[this.currentIndex];
-      }, 1000);
+      }, this.SETTINGS.transitionDuration);
     }
   }
 
   prevSlide(){
-    this.transitionDuration = '1s';
+    this.transitionDuration = this.SETTINGS.transitionDuration + 'ms';
     this.leftPosition = this.positionList[--this.currentIndex];
     if(this.currentIndex === 0){
       setTimeout(() => {
           this.transitionDuration = '0s';
           this.currentIndex = this.numOfSlides - 2;
           this.leftPosition = this.positionList[this.currentIndex];
-      }, 1000);    
+      }, this.SETTINGS.transitionDuration);    
     }
   }
 
   navigate(index){
-    this.transitionDuration = '1s';
+    this.transitionDuration = this.SETTINGS.transitionDuration + 'ms';
     this.currentIndex = index + 1;
     this.leftPosition = this.positionList[this.currentIndex];
   }
