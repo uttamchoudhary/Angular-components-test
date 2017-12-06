@@ -4,7 +4,7 @@
         <i [ngClass]="SETTINGS.prevIconClass" *ngIf="SETTINGS.prevIconClass" (click)="prevSlide()"></i>
         <ul [ngStyle]="{'width':carouselWidth,'transform': leftPosition, 'transition-duration':transitionDuration}">
 
-            <li *ngFor="let slide of images" [ngStyle]="{'width':slideWidth}">
+            <li *ngFor="let slide of images" [ngStyle]="{'width':slideWidth}" (click)="clicked()">
                 <img [src]="slide.media" [alt]="slide.caption" [ngStyle]="{'height':SETTINGS.height, 'width':SETTINGS.width}">
             </li>
 

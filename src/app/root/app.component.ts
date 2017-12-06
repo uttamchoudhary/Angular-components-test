@@ -10,11 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   images: Image[] = [
-    { "caption": "We are covered", "media": "../../assets/images/dashboard.PNG" },
-    { "caption": "Generation Gap", "media": "../../assets/images/dashborad1.PNG" },
-    { "caption": "Potter Me", "media": "../../assets/images/Expense.PNG" },
-    { "caption": "Pre-School Kids", "media": "../../assets/images/expense3.PNG" },
-    { "caption": "Young Peter Cech", "media": "../../assets/images/expense4.PNG" } 
+    { "caption": "We are covered", "media": "./assets/images/dashboard.PNG" },
+    { "caption": "Generation Gap", "media": "./assets/images/dashborad1.PNG" },
+    { "caption": "Potter Me", "media": "./assets/images/Expense.PNG" },
+    { "caption": "Pre-School Kids", "media": "./assets/images/expense3.PNG" },
+    { "caption": "Young Peter Cech", "media": "./assets/images/expense4.PNG" } 
   ];
   settings: Settings = {
     height:'400px',
@@ -24,6 +24,11 @@ export class AppComponent  {
     nextIconClass: 'icon-navigate-right',
     transitionDuration: 1000,
     transitionDelay:5000
+  }
+
+  handler(index){
+    console.log(index)
+    console.log(this.images[index]);
   }
   
 }

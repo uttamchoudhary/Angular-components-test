@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Image } from './model/image.model';
 import { Settings } from './model/settings.model';
 
@@ -10,6 +10,8 @@ import { Settings } from './model/settings.model';
 export class CarouselComponent implements OnInit {
   @Input() IMAGES: Image[];
   @Input() SETTINGS: Settings;
+
+  @Output() onclick = new EventEmitter();
   
   numOfSlides: number;
   images;
@@ -75,6 +77,10 @@ export class CarouselComponent implements OnInit {
     this.transitionDuration = this.SETTINGS.transitionDuration + 'ms';
     this.currentIndex = index + 1;
     this.leftPosition = this.positionList[this.currentIndex];
+  }
+
+  clicked(){
+    this.onclick.emit(this.currentIndex - 1);
   }
  
 }
