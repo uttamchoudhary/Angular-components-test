@@ -1,4 +1,4 @@
-import { CarouselModule } from './../carousel/carousel.module';
+import { CarouselModule } from 'ng2-slideshow';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

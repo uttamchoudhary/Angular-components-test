@@ -23,6 +23,8 @@
     "@angular/router": "^4.2.4",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "ng-custom-select": "^1.0.4",
+    "ng2-slideshow": "0.0.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

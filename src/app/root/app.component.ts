@@ -1,5 +1,4 @@
-import { Image } from './../carousel/model/image.model';
-import { Settings } from './../carousel/model/settings.model';
+import { Settings, Image } from 'ng2-slideshow';
 
 import { Component } from '@angular/core';
 
