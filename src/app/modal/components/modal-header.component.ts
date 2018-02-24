@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'modal-header',
-  templateUrl: './modal-header.component.html',
-  styleUrls: ['./modal-header.component.scss']
+  template:`<ng-content></ng-content>`
 })
+
 export class ModalHeaderComponent implements OnInit {
 
   constructor() { }

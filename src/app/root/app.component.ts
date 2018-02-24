@@ -8,16 +8,16 @@ import { Settings } from '../modal/models';
 })
 export class AppComponent  {
 
-  options: Settings = {
-    modalClass: 'my-modal',
-    closeOnEscape: true,
-    closeOnOutsideClick: true,
-    title: 'Title',
-    hideCloseButton: false,
-    cancelButtonLabel: 'cancel',
-    submitButtonLabel: 'Submit',
-    backdrop: true
-}
+//   options: Settings = {
+//     modalClass: 'my-modal',
+//     closeOnEscape: true,
+//     closeOnOutsideClick: true,
+//     title: 'Title',
+//     hideCloseButton: false,
+//     cancelButtonLabel: 'cancel',
+//     submitButtonLabel: 'Submit',
+//     backdrop: true
+// }
 
 
   

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'modal-content',
-  templateUrl: './modal-content.component.html',
-  styleUrls: ['./modal-content.component.scss']
+  template: `<ng-content></ng-content>`
 })
 export class ModalContentComponent implements OnInit {
 
