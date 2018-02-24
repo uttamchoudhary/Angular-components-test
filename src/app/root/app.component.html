@@ -6,7 +6,7 @@
 
     <div class="row">
         <button (click)="firstModal.open()">modal with custom header content and footer</button>
-        <modal #firstModal [settings]="options" (onSubmit)="firstModal.close()">
+        <modal #firstModal [config]="options" (onSubmit)="onSubmit(firstModal)" (onOpen)="onOpen()" (onClose)="onClose()">
             <modal-header>
                 <h1>I am first modal</h1>
             </modal-header>
@@ -18,5 +18,20 @@
             </modal-footer>
         </modal>
     </div>
+
+    <!-- <div class="row">
+        <button (click)="secondModal.open()">modal without close button</button>
+        <modal #secondModal>
+            <modal-header>
+                <h1>I am second modal</h1>
+            </modal-header>
+            <modal-content>
+                This modal does not have close button.
+            </modal-content>
+            <modal-footer>
+                <button class="btn btn-primary" (click)="secondModal.close()">okay!</button>
+            </modal-footer>
+        </modal>
+    </div> -->
 
 </div>

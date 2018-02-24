@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, OnDestroy, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, OnDestroy, OnChanges, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { Settings } from './models';
 
 @Component({
@@ -6,13 +6,9 @@ import { Settings } from './models';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnDestroy {
+export class ModalComponent implements OnChanges {
 
-  @Input() settings: Settings;
-
-
-  @Input()
-  public backdrop: boolean = true;
+  @Input() config: Settings;
 
   @Output() public onOpen = new EventEmitter(false);
   @Output() public onClose = new EventEmitter(false);
@@ -22,36 +18,41 @@ export class ModalComponent implements OnDestroy {
 
   @ViewChild("modalRoot")
   public modalRoot: ElementRef;
-
+  private settings: Settings;
   private backdropElement: HTMLElement;
 
   constructor() {
+    this.settings = {
+      closeOnEscape: true,
+      closeOnOutsideClick: true,
+      hideCloseButton: false,
+      backdrop: true
+    }
+  }
+
+  ngOnChanges() {
+    this.settings = Object.assign(this.settings, this.config);
     this.createBackDrop();
   }
 
-  ngOnDestroy() {
-    document.body.className = document.body.className.replace(/modal-open\b/, "");
-    if (this.backdropElement && this.backdropElement.parentNode === document.body)
-      document.body.removeChild(this.backdropElement);
-  }
 
-  open(...args: any[]) {
+  open() {
     if (this.isOpened)
       return;
 
     this.isOpened = true;
-    this.onOpen.emit(args);
+    this.onOpen.emit();
     document.body.appendChild(this.backdropElement);
     window.setTimeout(() => this.modalRoot.nativeElement.focus(), 0);
     document.body.className += " modal-open";
   }
 
-  close(...args: any[]) {
+  close() {
     if (!this.isOpened)
       return;
 
     this.isOpened = false;
-    this.onClose.emit(args);
+    this.onClose.emit();
     document.body.removeChild(this.backdropElement);
     document.body.className = document.body.className.replace(/modal-open\b/, "");
   }

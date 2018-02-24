@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" role="dialog" #modalRoot (keydown.esc)="settings?.closeOnEscape ? close() : 0" [ngClass]="{ in: isOpened, fade: isOpened }" [ngStyle]="{ display: isOpened ? 'block' : 'none' }" (click)="settings?.closeOnOutsideClick ? close() : 0">
+<div class="modal fade" tabindex="-1" role="dialog" #modalRoot (keydown.esc)="settings?.closeOnEscape ? close() : 0" [ngClass]="{ in: isOpened}" [ngStyle]="{ display: isOpened ? 'block' : 'none' }" (click)="settings?.closeOnOutsideClick ? close() : 0">
     <div [class]="'modal-dialog ' + modalClass" (click)="preventClosing($event)">
         <div class="modal-content" tabindex="0" *ngIf="isOpened">
             <div class="modal-header">
@@ -11,8 +11,8 @@
             </div>
             <div class="modal-footer">
                 <ng-content select="modal-footer"></ng-content>
-                <button *ngIf="settings?.cancelButtonLabel" type="button" class="btn btn-default" data-dismiss="modal" (click)="close()">{{ settings?.cancelButtonLabel }}</button>
-                <button *ngIf="settings?.submitButtonLabel" type="button" class="btn btn-primary" (click)="onSubmit.emit(undefined)">{{ settings?.submitButtonLabel }}</button>
+                <button *ngIf="settings?.secondaryButtonLabel" type="button" class="btn btn-default" data-dismiss="modal" (click)="close()">{{ settings?.secondaryButtonLabel }}</button>
+                <button *ngIf="settings?.primaryButtonLabel" type="button" class="btn btn-primary" (click)="onSubmit.emit()">{{ settings?.primaryButtonLabel }}</button>
             </div>
         </div>
     </div>

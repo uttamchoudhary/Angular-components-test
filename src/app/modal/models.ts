@@ -4,7 +4,7 @@ export interface Settings {
     closeOnOutsideClick?: boolean,
     title?: string,
     hideCloseButton?: boolean,
-    cancelButtonLabel?: string,
-    submitButtonLabel?: string,
+    secondaryButtonLabel?: string,
+    primaryButtonLabel?: string,
     backdrop?: boolean
 }
