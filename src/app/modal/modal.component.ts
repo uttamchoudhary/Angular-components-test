@@ -43,18 +43,24 @@ export class ModalComponent implements OnChanges {
     this.isOpened = true;
     this.onOpen.emit();
     document.body.appendChild(this.backdropElement);
-    window.setTimeout(() => this.modalRoot.nativeElement.focus(), 0);
     document.body.className += " modal-open";
+
+    window.setTimeout(() => {
+      this.modalRoot.nativeElement.classList.add('in');
+      this.modalRoot.nativeElement.focus()
+    }, 0);
+
   }
 
   close() {
     if (!this.isOpened)
       return;
 
-    this.isOpened = false;
+    this.modalRoot.nativeElement.classList.remove('in');
     this.onClose.emit();
     document.body.removeChild(this.backdropElement);
     document.body.className = document.body.className.replace(/modal-open\b/, "");
+    window.setTimeout(() => this.isOpened = false, 100);
   }
 
   public preventClosing(event: MouseEvent) {

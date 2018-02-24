@@ -9,7 +9,7 @@ import { Settings } from '../modal/models';
 export class AppComponent  {
   
   options: Settings = {
-    modalClass: 'my-modal',
+    modalClass: 'modal-sm',
     closeOnEscape: true,
     closeOnOutsideClick: true,
     title: 'Title',
