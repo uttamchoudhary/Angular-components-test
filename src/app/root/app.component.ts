@@ -8,8 +8,7 @@ import { Settings } from '../modal/models';
 })
 export class AppComponent  {
   
-  options: Settings = {
-    modalClass: 'modal-sm',
+  options1: Settings = {
     closeOnEscape: true,
     closeOnOutsideClick: true,
     title: 'Title',
@@ -17,6 +16,38 @@ export class AppComponent  {
     secondaryButtonLabel: 'cancel',
     primaryButtonLabel: 'Submit',
     backdrop: true
+}
+
+options2: Settings = {
+  closeOnEscape: true,
+  closeOnOutsideClick: true,
+  title: 'Title',
+  hideCloseButton: true,
+  backdrop: true
+}
+options3: Settings = {
+  closeOnEscape: true,
+  closeOnOutsideClick: true,
+  title: 'Title',
+  hideCloseButton: false,
+  backdrop: false
+}
+options4: Settings = {
+  closeOnEscape: false,
+  closeOnOutsideClick: true,
+  title: 'Title',
+  hideCloseButton: false,
+  secondaryButtonLabel: 'cancel',
+  backdrop: true
+}
+options5: Settings = {
+  modalClass: 'modal-sm',
+  closeOnEscape: true,
+  closeOnOutsideClick: true,
+  title: 'Title',
+  hideCloseButton: false,
+  secondaryButtonLabel: 'cancel',
+  backdrop: true
 }
 
 onOpen(){

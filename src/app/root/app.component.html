@@ -6,7 +6,7 @@
 
     <div class="row">
         <button (click)="firstModal.open()">modal with custom header content and footer</button>
-        <modal #firstModal [config]="options" (onSubmit)="onSubmit(firstModal)" (onOpen)="onOpen()" (onClose)="onClose()">
+        <modal #firstModal [config]="options1" (onSubmit)="onSubmit(firstModal)" (onOpen)="onOpen()" (onClose)="onClose()">
             <modal-header>
                 <h1>I am first modal</h1>
             </modal-header>
@@ -19,9 +19,9 @@
         </modal>
     </div>
 
-    <!-- <div class="row">
+    <div class="row">
         <button (click)="secondModal.open()">modal without close button</button>
-        <modal #secondModal>
+        <modal #secondModal [config]="options2">
             <modal-header>
                 <h1>I am second modal</h1>
             </modal-header>
@@ -32,6 +32,53 @@
                 <button class="btn btn-primary" (click)="secondModal.close()">okay!</button>
             </modal-footer>
         </modal>
-    </div> -->
+    </div>
+
+    <div class="row">
+        <button (click)="thirdModal.open()">modal without backdrop</button>
+        <modal #thirdModal [config]="options3">
+            <modal-header>
+                <h1>I am third modal</h1>
+            </modal-header>
+            <modal-content>
+                This modal does not have backdrop.
+            </modal-content>
+            <modal-footer>
+                <button class="btn btn-primary" (click)="thirdModal.close()">okay!</button>
+            </modal-footer>
+        </modal>
+    </div>
+
+    <div class="row">
+        <button (click)="forthModal.open()">modal dont close on escape</button>
+        <modal #forthModal [config]="options4">
+            <modal-header>
+                <h1>I am forth modal</h1>
+            </modal-header>
+            <modal-content>
+                This modal does not close on escape.
+            </modal-content>
+            <modal-footer>
+                <button class="btn btn-primary" (click)="forthModal.close()">okay!</button>
+            </modal-footer>
+        </modal>
+    </div>
+
+    <div class="row">
+        <button (click)="fifthModal.open()">Small modal</button>
+        <modal #fifthModal [config]="options5">
+            <modal-header>
+                <h1>I am fifth modal</h1>
+            </modal-header>
+            <modal-content>
+                This modal is small in size.
+            </modal-content>
+            <modal-footer>
+                <button class="btn btn-primary" (click)="fifthModal.close()">okay!</button>
+            </modal-footer>
+        </modal>
+    </div>
+
+
 
 </div>
