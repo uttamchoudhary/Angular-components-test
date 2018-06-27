@@ -2,17 +2,11 @@
     /* Size & position */
     display: inline-block;
     position: relative;
-    input {
+    input[type="text"] {
         width: 90%;
         border: none;
         outline: none;
         text-transform: capitalize;
-    }
-    span {
-        text-transform: capitalize;
-    }
-    .selected {
-        padding-right: 20px;
     }
     #caret {
         position: absolute;
@@ -27,7 +21,7 @@
             pointer-events: none;
         }
     }
-    .dropdown {
+    .ng-dropdown-menu {
         /* Size & position */
         display: none;
         position: absolute;
@@ -37,7 +31,7 @@
         /* Styles */
         list-style: none;
         /* Hiding */
-        overflow: hidden;
+        overflow: auto;
         z-index: 9999;
         /* Hover state */
         li {
@@ -60,6 +54,6 @@
     transform: rotate(180deg);
 }
 
-.ng-dropdown-wrapper.active .dropdown {
+.ng-dropdown-wrapper.active .ng-dropdown-menu {
     display: block;
 }

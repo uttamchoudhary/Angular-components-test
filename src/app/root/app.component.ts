@@ -17,33 +17,44 @@ export class AppComponent  {
     {
       key: 'send_to',
       name: 'Sachin',
-      status: 0
+      status: 1
     },
     {
       key: 'pick_to',
       name: 'Anuj',
-      status: 0
+      status: 2
     },
     {
       key: 'pick_from',
       name: 'Sunny',
       status: 0
-    }
+    },
+    
   ];
   current;
   //selected = 2;
-  settings;
+  settings ={
+    caretClass:'icon-dropdown',
+    dropdownClass: 'dropdown-wrapper',      
+    dropdownMenuClass: 'dropdown',
+    optionsClass: 'option'
+  };
+  stringoptions = ['uttam','sachin','anuj', 'anu', 'honey'];
+  numericOptions = [1,2,3,4,57,8,23]
   displayed;
-  searchKeys =['key','name'];
+  selectForm : FormGroup;
+  stringmodelForm : FormGroup;
+  searchKeys =['key','name', 'status'];
   constructor(private _fb: FormBuilder){
     this.current = this.options[1];
-    this.settings =  {
-      output:'value',
-      isDatalist: true,      
-      caretClass: 'icon-dropdown'
-    }
     this.modelForm = this._fb.group({
       selectBox : [this.options[2], Validators.required]
+    })
+    this.selectForm = this._fb.group({
+      selectBox : [this.options[2], Validators.required]
+    })
+    this.stringmodelForm = this._fb.group({
+      selectBox : [this.stringoptions[2], Validators.required]
     })
   }
   changeValue(index){

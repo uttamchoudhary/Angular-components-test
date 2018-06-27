@@ -5,18 +5,37 @@
     Dropdown
 </h3>
 <form novalidate #templateForm="ngForm">
-    <ng-dropdown name="selectBox" displayKey="name" [options]="options" [(ngModel)]="current" (change)="changeValue($event)"></ng-dropdown>
+    <ng-dropdown name="selectBox" displayKey="name" [options]="options" [(ngModel)]="current" [styleGuide]="settings"></ng-dropdown>
 </form>
+<span>{{templateForm.value | json}}</span>
 <br>
 
 <form novalidate [formGroup]="modelForm">
-    <ng-dropdown displayKey="name" formControlName="selectBox" isDatalist="true" [searchKeys]="searchKeys" [options]="options" (change)="changeValue($event)"></ng-dropdown>
+    <ng-dropdown formControlName="selectBox" isDatalist="true" [options]="options" [styleGuide]="settings" (onChange)="changeValue($event)"></ng-dropdown>
 </form>
+
+<span>{{modelForm.value | json}}</span>
+
+<form novalidate [formGroup]="selectForm">
+    <ng-dropdown formControlName="selectBox" [searchKeys]="searchKeys" [options]="options" [styleGuide]="settings" (onChange)="changeValue($event)"></ng-dropdown>
+</form>
+
+<span>{{selectForm.value | json}}</span>
+
+<form novalidate [formGroup]="stringmodelForm">
+    <ng-dropdown formControlName="selectBox" isDatalist="true" [options]="stringoptions" [styleGuide]="settings" (onChange)="changeValue($event)"></ng-dropdown>
+</form>
+
+<span>{{stringmodelForm.value | json}}</span>
+
+<ng-dropdown [options]="stringoptions" [styleGuide]="settings" (onChange)="changeValue($event)"></ng-dropdown>
+<ng-dropdown isDatalist="true" [options]="numericOptions" [styleGuide]="settings" (onChange)="changeValue($event)"></ng-dropdown>
+
 
 <button type="button" (click)="printValue(templateForm)">Show</button>
 
 <p>
-    {{displayed}}
+    {{displayed | json}}
 </p>
 <!-- <ng-dropdown [options]="options" (onchange)="changeValue($event)"></ng-dropdown> -->
 <!-- <span data-count=20>items</span>

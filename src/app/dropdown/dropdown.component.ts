@@ -31,11 +31,8 @@ export class DropdownComponent implements OnInit, ControlValueAccessor, Validato
   //name of key to displayed as options
   @Input() displayKey: string;
 
-  //Class name for caret icon
-  @Input() caretClass: string;
-
-  //if dropdown is multiselect
-  @Input() multiSelect: boolean;
+  //contains various Config classes for dropdown 
+  @Input() styleGuide : any;
 
   //True if Dropdown should behave like a datalist
   @Input() isDatalist: boolean;
@@ -45,10 +42,7 @@ export class DropdownComponent implements OnInit, ControlValueAccessor, Validato
 
   @ViewChild('searchInput') searchInput: ElementRef;
 
-  //@Input() selected: number;
-  //@Input() settings: Settings;
-
-  @Output() change = new EventEmitter();
+  @Output() onChange = new EventEmitter();
 
   selectedItem: any;
   searchTerm: FormControl;
@@ -66,7 +60,7 @@ export class DropdownComponent implements OnInit, ControlValueAccessor, Validato
 
   writeValue(obj: any) {
     this.selectedItem = obj;
-    obj ? this.searchTerm.setValue(obj[this.displayKey]) : null;
+    obj ? this.searchTerm.setValue(obj[this.displayKey] || obj) : null;
   }
 
   registerOnTouched() { }
@@ -76,27 +70,28 @@ export class DropdownComponent implements OnInit, ControlValueAccessor, Validato
   }
 
   validate(): ValidationErrors {
-    return null
+    return this.selectedItem ? null : { required : true };
   }
 
 
-
-
   ngOnInit() {
-    //this.selectedItem = this.options[0];
-    this.getCaretPosition();
-    // this.selectedItem = this.selected ? this.options[this.selected - 1] : this.options[0];
-    // this.searchTerm = this.selectedItem;
-    if(!this.displayKey)
+    this.selectedItem = this.options[0];
+    setTimeout(() => {
+      this.getCaretPosition();
+    })
+
+    if(!this.displayKey && typeof this.options[0] === 'object')
       this.displayKey = Object.keys(this.options[0])[0];
-    this.searchTerm.setValue(this.options[0][this.displayKey]);
+    this.searchTerm.setValue(this.options[0][this.displayKey] || this.options[0]);
     this.filterOptions = Object.assign([], this.options);
     this.isDatalist ? this.initSearch() : null;
   }
 
   initSearch() {
-    if(!this.searchKeys || !this.searchKeys.length)
+    if((!this.searchKeys || !this.searchKeys.length) && this.displayKey && typeof this.options[0] === 'object')
       this.searchKeys = [this.displayKey];
+    else if(!this.displayKey || typeof this.options[0] !== 'object')
+      this.searchKeys = ['0'];
     this.searchTerm.valueChanges
       .sample(Observable.fromEvent(this.searchInput.nativeElement, 'input'))
       .debounceTime(100)
@@ -105,13 +100,11 @@ export class DropdownComponent implements OnInit, ControlValueAccessor, Validato
         return Observable.of(
           this.options.filter(option => {
             for(let i = 0, len = this.searchKeys.length; i < len; i++){
-              if (option[this.searchKeys[i]].toLowerCase().indexOf(term.toLowerCase()) > -1) {
+              if (typeof option === "object" && option[this.searchKeys[i]].toString().toLowerCase().indexOf(term.toLowerCase()) > -1) {
                 return option;
-              }
+              }else if(typeof option !== "object" && option.toString().toLowerCase().indexOf(term.toLowerCase()) > -1)
+                return option;
             }
-            
-            // if (v.name.toLowerCase().indexOf(term.toLowerCase()) > -1 || v.address.toLowerCase().indexOf(term.toLowerCase()) > -1)
-            //   return v;
           }))
       }).subscribe(list => {
         this.filterOptions = list;
@@ -119,29 +112,18 @@ export class DropdownComponent implements OnInit, ControlValueAccessor, Validato
   }
 
   changeValue(option) {
-    this.searchTerm.setValue(option[this.displayKey]);
+    this.searchTerm.setValue(option[this.displayKey] || option);
     this.propagateChange(option);
-    this.change.emit(option);
+    this.onChange.emit(option);
     this.selectedItem = option;
-    //this.searchTerm = this.selectedItem; 
-    // if(this.settings && (this.settings['output'] === "value" || this.settings['output'] === "Value")){
-    //   this.onchange.emit(this.selectedItem);     
-    // }else{
-    //   this.onchange.emit(index);
-    // }
   }
 
   closeDropdown(event) {
     if (!this._eref.nativeElement.contains(event.target)) {
-      //this.close.emit();
-     // this.host.classList.remove('active');
       this.active = false;
-      this.changeValue(this.selectedItem);
-      //this.searchTerm = this.selectedItem;
-     this.filterOptions = Object.assign([], this.options);
+      this.searchTerm.setValue(this.selectedItem[this.displayKey] || this.selectedItem);
+      this.filterOptions = Object.assign([], this.options);
     }
-      // this.changeValue(this.selectedItem);
-      // this.filterOptions = Object.assign([], this.options);
   }
 
   getCaretPosition() {
