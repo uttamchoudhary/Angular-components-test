@@ -4,11 +4,21 @@
 <h3>
     Dropdown
 </h3>
-<ng-dropdown [selected]="selected" [options]="options" [settings]="settings" (onchange)="changeValue($event)"></ng-dropdown>
+<form novalidate #templateForm="ngForm">
+    <ng-dropdown name="selectBox" displayKey="name" [options]="options" [(ngModel)]="current" (change)="changeValue($event)"></ng-dropdown>
+</form>
+<br>
+
+<form novalidate [formGroup]="modelForm">
+    <ng-dropdown displayKey="name" formControlName="selectBox" isDatalist="true" [searchKeys]="searchKeys" [options]="options" (change)="changeValue($event)"></ng-dropdown>
+</form>
+
+<button type="button" (click)="printValue(templateForm)">Show</button>
+
 <p>
     {{displayed}}
 </p>
-<ng-dropdown [options]="options" (onchange)="changeValue($event)"></ng-dropdown>
+<!-- <ng-dropdown [options]="options" (onchange)="changeValue($event)"></ng-dropdown> -->
 <!-- <span data-count=20>items</span>
 <header>
     <nav class="navigation">Hello world</nav>

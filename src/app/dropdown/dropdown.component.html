@@ -1,0 +1,8 @@
+<div class="ng-dropdown-wrapper" tabindex="0" (click)="active=!active" [ngClass]="{'active':active}">
+    <input type="text" name="searchTerm" tabindex="-1" [formControl]="searchTerm" [readonly]="!isDatalist" #searchInput>
+    <!-- <span *ngIf="!settings?.isDatalist" class="selected">{{selectedItem[displayKey]}}</span> -->
+    <span [class]="caretClass" id="caret" [ngStyle]="{'top':positionTop,'right':positionRight}" [ngClass]="{'icon':!caretClass}"></span>
+    <ul class="dropdown">
+        <li *ngFor="let option of filterOptions" (click)="changeValue(option)"><span>{{option[displayKey]}}</span></li>
+    </ul>
+</div>

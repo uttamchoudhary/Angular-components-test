@@ -1,4 +1,4 @@
-.dropdown-wrapper {
+.ng-dropdown-wrapper {
     /* Size & position */
     display: inline-block;
     position: relative;
@@ -31,7 +31,7 @@
         /* Size & position */
         display: none;
         position: absolute;
-        top: 100%;
+        top: 102%;
         left: 0;
         right: 0;
         /* Styles */
@@ -52,7 +52,7 @@
 
 /* Active state */
 
-.dropdown-wrapper.active #caret {
+.ng-dropdown-wrapper.active #caret {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -60,6 +60,6 @@
     transform: rotate(180deg);
 }
 
-.dropdown-wrapper.active .dropdown {
+.ng-dropdown-wrapper.active .dropdown {
     display: block;
 }
