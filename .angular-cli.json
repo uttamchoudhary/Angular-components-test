@@ -5,7 +5,8 @@
     },
     "apps": [{
         "root": "src",
-        "outDir": "dist",
+        "outDir": "docs",
+
         "assets": [
             "assets",
             "favicon.ico"
@@ -53,6 +54,10 @@
     },
     "defaults": {
         "styleExt": "scss",
-        "component": {}
+        "component": {},
+        "build": {
+            "baseHref": "/Angular-components-test/",
+            "deployUrl": "/Angular-components-test/"
+        }
     }
 }
